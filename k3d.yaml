@@ -1,0 +1,11 @@
+apiVersion: k3d.io/v1alpha4
+kind: Simple
+metadata:
+  name: mycluster
+servers: 1 # Master Nodes
+agents: 2 # Worker Nodes
+image: rancher/k3s:v1.26.2-k3s1 # K3s kubernetes Version
+ports:
+  - port: 8080:80 # For Ingress Entry
+    nodeFilters:
+      - loadbalancer
